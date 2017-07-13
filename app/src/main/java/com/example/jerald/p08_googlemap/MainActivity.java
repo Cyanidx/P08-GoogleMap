@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     LatLng poi_north = new LatLng(1.441073, 103.772070);
     LatLng poi_tampines = new LatLng(1.367149, 103.928021);
     Spinner spn;
+    Marker np, central, tp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             public void onMapReady(GoogleMap googleMap) {
                 map = googleMap;
                 //set the longitude and latitude
+
                 LatLng poi_CausewayPoint = new LatLng(1.357852, 103.899966);
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(poi_CausewayPoint,
                         11));
@@ -62,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                Marker np = map.addMarker(new
+                np = map.addMarker(new
                         MarkerOptions()
                         .position(poi_north)
                         .title("HQ-North")
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                Marker tp = map.addMarker(new
+                tp = map.addMarker(new
                         MarkerOptions()
                         .position(poi_tampines)
                         .title("East")
@@ -80,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                final Marker central = map.addMarker(new
+                central = map.addMarker(new
                         MarkerOptions()
                         .position(poi_central)
                         .title("Central")
@@ -99,24 +101,15 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "Block 555, Tampines Ave 3, 287788\nOperating hours: 10am-5pm\nTel:65433456", Toast.LENGTH_LONG).show();
                         }
 
-                        return true;
+                        return false;
                     }
 
                 });
 
 
-
-
-
-
-
                 UiSettings ui = map.getUiSettings();
                 ui.setCompassEnabled(true);
                 ui.setZoomControlsEnabled(true);
-
-
-
-
 
 
 
